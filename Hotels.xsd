@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="https://rahul200512.github.io/cse445-xml"
+           xmlns:tns="https://rahul200512.github.io/cse445-xml"
            elementFormDefault="qualified"
            attributeFormDefault="unqualified">
   <xs:element name="Hotels">

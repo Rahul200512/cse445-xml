@@ -63,7 +63,7 @@ namespace ConsoleApp1
             {
                 string xsdContent = DownloadContent(xsdUrl);
                 XmlSchemaSet schemas = new XmlSchemaSet();
-                schemas.Add(null, XmlReader.Create(new StringReader(xsdContent)));
+                schemas.Add("https://rahul200512.github.io/cse445-xml", XmlReader.Create(new StringReader(xsdContent)));
 
                 string xmlContent = DownloadContent(xmlUrl);
                 XDocument doc = XDocument.Parse(xmlContent);
@@ -121,18 +121,20 @@ namespace ConsoleApp1
                 XmlDocument doc = new XmlDocument();
                 doc.LoadXml(xmlContent);
 
-                XmlNodeList nodes = doc.SelectNodes("//Hotel[@Rating >= " + stars + "]");
+                XmlNamespaceManager nsMgr = new XmlNamespaceManager(doc.NameTable);
+                nsMgr.AddNamespace("h", "https://rahul200512.github.io/cse445-xml");
+                XmlNodeList nodes = doc.SelectNodes("//h:Hotel[@Rating >= " + stars + "]", nsMgr);
 
                 string result = "";
                 foreach (XmlNode node in nodes)
                 {
                     if (result != "") result += "\n";
-                    string name = node.SelectSingleNode("Name").InnerText;
-                    string phone = node.SelectSingleNode("Phone").InnerText;
-                    string street = node.SelectSingleNode("Address/Street").InnerText;
-                    string city = node.SelectSingleNode("Address/City").InnerText;
-                    string state = node.SelectSingleNode("Address/State").InnerText;
-                    string zip = node.SelectSingleNode("Address/Zip").InnerText;
+                    string name = node.SelectSingleNode("h:Name", nsMgr).InnerText;
+                    string phone = node.SelectSingleNode("h:Phone", nsMgr).InnerText;
+                    string street = node.SelectSingleNode("h:Address/h:Street", nsMgr).InnerText;
+                    string city = node.SelectSingleNode("h:Address/h:City", nsMgr).InnerText;
+                    string state = node.SelectSingleNode("h:Address/h:State", nsMgr).InnerText;
+                    string zip = node.SelectSingleNode("h:Address/h:Zip", nsMgr).InnerText;
                     int rating = int.Parse(node.Attributes["Rating"].Value);
                     result += name + ", " + phone + ", " + street + ", " + city + ", " + state + ", " + zip + ", " + rating + " Stars";
                 }
@@ -154,7 +156,8 @@ namespace ConsoleApp1
                 XmlDocument doc = new XmlDocument();
                 doc.LoadXml(xmlContent);
 
-                XmlNodeList hotels = doc.GetElementsByTagName("Hotel");
+                string ns = "https://rahul200512.github.io/cse445-xml";
+                XmlNodeList hotels = doc.GetElementsByTagName("Hotel", ns);
                 string result = "";
 
                 foreach (XmlNode hotel in hotels)
@@ -163,12 +166,13 @@ namespace ConsoleApp1
                     if (rating >= stars)
                     {
                         if (result != "") result += "\n";
-                        string name = hotel["Name"].InnerText;
-                        string phone = hotel["Phone"].InnerText;
-                        string street = hotel["Address"]["Street"].InnerText;
-                        string city = hotel["Address"]["City"].InnerText;
-                        string state = hotel["Address"]["State"].InnerText;
-                        string zip = hotel["Address"]["Zip"].InnerText;
+                        string name = hotel["Name", ns].InnerText;
+                        string phone = hotel["Phone", ns].InnerText;
+                        XmlNode addr = hotel["Address", ns];
+                        string street = addr["Street", ns].InnerText;
+                        string city = addr["City", ns].InnerText;
+                        string state = addr["State", ns].InnerText;
+                        string zip = addr["Zip", ns].InnerText;
                         result += name + ", " + phone + ", " + street + ", " + city + ", " + state + ", " + zip + ", " + rating + " Stars";
                     }
                 }
@@ -243,17 +247,18 @@ namespace ConsoleApp1
                 XmlDocument doc = new XmlDocument();
                 doc.LoadXml(xmlContent);
 
-                XmlNodeList hotels = doc.GetElementsByTagName("Hotel");
+                string ns = "https://rahul200512.github.io/cse445-xml";
+                XmlNodeList hotels = doc.GetElementsByTagName("Hotel", ns);
                 string result = "";
 
                 foreach (XmlNode hotel in hotels)
                 {
-                    string hotelCity = hotel["Address"]["City"].InnerText;
+                    string hotelCity = hotel["Address", ns]["City", ns].InnerText;
                     if (hotelCity.Equals(city, StringComparison.OrdinalIgnoreCase))
                     {
                         if (result != "") result += "\n";
-                        string name = hotel["Name"].InnerText;
-                        string phone = hotel["Phone"].InnerText;
+                        string name = hotel["Name", ns].InnerText;
+                        string phone = hotel["Phone", ns].InnerText;
                         int rating = int.Parse(hotel.Attributes["Rating"].Value);
                         result += name + ", " + phone + ", " + rating + " Stars";
                     }
