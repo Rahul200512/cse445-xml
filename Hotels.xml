@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Hotels.xsd">
+<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://rahul200512.github.io/cse445-xml/Hotels.xsd">
   <Hotel Rating="4">
     <Name>Grand Canyon Inn</Name>
     <Phone>480-555-1234</Phone>
