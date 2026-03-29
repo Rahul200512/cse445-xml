@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Hotels.xsd">
+  <Hotel Rating="4">
+    <Name>Grand Canyon Inn</Name>
+    <Phone>480-555-1234</Phone>
+    <Address>
+      <Street>100 Main Street</Street>
+      <City>Scottsdale</City>
+      <State>AZ</State>
+      <Zip>85251</Zip>
+    </Address>
+  </Hotel>
+  <Hotel Rating="5">
+    <Name>Desert Rose Resort</Name>
+    <Phone>602-555-5678</Phone>
+    <Address>
+      <Street>200 Camelback Road</Street>
+      <City>Phoenix</City>
+      <State>AZ</State>
+      <Zip>85016</Zip>
+    </Address>
+  </Hotel>
+  <Hotel Rating="3">
+    <Name>Tempe Stay Suites</Name>
+    <Phone>480-555-9012</Phone>
+    <Address>
+      <Street>300 University Drive</Street>
+      <City>Tempe</City>
+      <State>AZ</State>
+      <Zip>85281</Zip>
+    </Address>
+  </Hotel>
+</Hotels>

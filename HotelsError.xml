@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Hotels.xsd">
+  <Hotel Rating="four">
+    <Name>Grand Canyon Inn</Name>
+    <Phone>480-555-1234</Phone>
+    <Address>
+      <Street>100 Main Street</Street>
+      <City>Scottsdale</City>
+      <State>AZ</State>
+      <Zip>85251</Zip>
+    </Address>
+  </Hotel>
+</Hotels>
