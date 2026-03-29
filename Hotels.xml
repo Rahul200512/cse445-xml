@@ -30,4 +30,24 @@
       <Zip>85281</Zip>
     </Address>
   </Hotel>
+  <Hotel Rating="2">
+    <Name>Mesa Budget Lodge</Name>
+    <Phone>480-555-3456</Phone>
+    <Address>
+      <Street>400 Southern Avenue</Street>
+      <City>Mesa</City>
+      <State>AZ</State>
+      <Zip>85202</Zip>
+    </Address>
+  </Hotel>
+  <Hotel Rating="5">
+    <Name>Sedona Luxury Retreat</Name>
+    <Phone>928-555-7890</Phone>
+    <Address>
+      <Street>500 Red Rock Lane</Street>
+      <City>Sedona</City>
+      <State>AZ</State>
+      <Zip>86336</Zip>
+    </Address>
+  </Hotel>
 </Hotels>
