@@ -8,8 +8,18 @@
     <Address>
       <Street>100 Main Street</Street>
       <City>Scottsdale</City>
-      <State>AZ</State>
-      <Zip>85251</Zip>
+      <State>INVALID</State>
+      <Zip>BADZIP</Zip>
+    </Address>
+  </Hotel>
+  <Hotel Rating="6">
+    <Name>Bad Hotel</Name>
+    <Phone>000-000-0000</Phone>
+    <Address>
+      <Street>999 Nowhere Blvd</Street>
+      <City>Faketown</City>
+      <State>XX</State>
+      <Zip>00000</Zip>
     </Address>
   </Hotel>
 </Hotels>

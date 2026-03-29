@@ -63,7 +63,7 @@ namespace ConsoleApp1
             {
                 string xsdContent = DownloadContent(xsdUrl);
                 XmlSchemaSet schemas = new XmlSchemaSet();
-                schemas.Add("https://rahul200512.github.io/cse445-xml", XmlReader.Create(new StringReader(xsdContent)));
+                schemas.Add(null, XmlReader.Create(new StringReader(xsdContent)));
 
                 string xmlContent = DownloadContent(xmlUrl);
                 XDocument doc = XDocument.Parse(xmlContent);
